@@ -1,0 +1,110 @@
+includes:
+  - headers/data.yaml
+  - headers/device.yaml
+  - headers/misc.yaml
+  - headers/model.yaml
+  - headers/optimizer.yaml
+
+
+batch_size: 16
+# batch_size: 32
+# few shot settings
+# test way/shot are the same as train
+augment: true
+augment_times: 1
+augment_times_query: 1
+way_num: 5
+shot_num: 5
+query_num: 15
+episode_size: 1
+train_episode: 2000
+# train_episode: 1000
+# test_episode: 300
+test_episode: 600
+experimental: false
+eval_types: oracle
+# eval_types: oracle, cross_val
+k_fold: 10
+workers: 8
+seed: 42
+boot_rounds: 20
+port: 53124
+
+device_ids: 2
+n_gpu: 1
+epoch: 100
+
+result_root: '~/'
+
+lr_scheduler:
+  kwargs:
+    gamma: 1.0
+    step_size: 20
+  name: StepLR
+n_gpu: 1
+optimizer:
+  kwargs:
+    lr: 0.001
+    momentum: 0.9
+    weight_decay: 0.0005
+  name: SGD
+  other: null
+
+backbone:
+  kwargs:
+    avg_pool: true
+    is_feature: false
+    is_flatten: true
+    last_block_stride: 2
+  name: resnet18
+
+classifier:
+  name: MAMLCV
+  kwargs:
+    inner_param:
+      lr: 0.01
+      train_iter: 10
+      test_iter: 10
+    feat_dim: 512
+
+hpo: false
+hpo_trials: 15
+test: false
+image_size: 128
+tb_scale: 3.33333
+
+cross_domain: true
+data_root: '~/'
+train_datasets:
+- 44305/AWA_Mini
+- 44306/INS_Mini
+- 44302/FNG_Mini
+- 44303/PLT_DOC_Mini
+- 44308/PRT_Mini
+- 44307/RSD_Mini
+- 44309/BTS_Mini
+- 44304/TEX_ALOT_Mini
+- 44301/ACT_410_Mini
+- 44310/MD_6_Mini
+val_datasets:
+  - 44285/BRD_Mini
+  - 44282/PLK_Mini
+  - 44283/FLW_Mini
+  - 44286/PLT_VIL_Mini
+  - 44281/BCT_Mini
+  - 44290/RESISC_Mini
+  - 44289/CRS_Mini
+  - 44288/TEX_Mini
+  - 44284/SPT_Mini
+  - 44287/MD_MIX_Mini
+test_datasets:
+  - 44298/DOG_Mini
+  - 44292/INS_2_Mini
+  - 44293/PLT_NET_Mini
+  - 44299/MED_LF_Mini
+  - 44297/PNU_Mini
+  - 44300/RSICB_Mini
+  - 44295/APL_Mini
+  - 44294/TEX_DTD_Mini
+  - 44291/ACT_40_Mini
+  - 44296/MD_5_BIS_Mini

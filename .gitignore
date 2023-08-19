@@ -1,0 +1,4 @@
+sync.sh
+sync_alt.sh
+scripts/
+./InContextLearning/fromage-main/fromage_model/cc3m_embeddings.pkl

@@ -1,0 +1,63 @@
+# doe: "a deer, a female deer"
+# ray: "a drop of golden sun"
+# pi: 3.14159
+# xmas: true
+# french-hens: 3
+# calling-birds:
+#   - huey
+#   - dewey
+#   - louie
+#   - fred
+# xmas-fifth-day:
+#   calling-birds: four
+#   french-hens: 3
+#   golden-rings: 5
+#   partridges:
+#     count: 1
+#     location: "a pear tree"
+#   turtle-doves: two
+
+# - Line-chart (x-axis: cv shots, y-axis: accuracy) with 9 lines (model x measurement methods)
+# - Line-chart (x-axis: cv shots, y-axis: MAE between oracle and cv) with 3 lines (model)
+# - checkpoints_path/{model}/{dataset}
+# - {model_name}-{k_fold}fold-{eval_type}.csv
+
+# ! SAMPLE YAML
+
+# ? FOR SERVER
+# n_plots: 1
+
+# plot:
+#   type: comp_line_chart
+#   specifications:
+#     checkpoint_dir: /afs/inf.ed.ac.uk/user/s25/s2589574/BEPE/Models/
+#     models: ProtoNet
+#     color_list: rgb(255, 201, 222)
+#     dash: solid
+#     datasets: TEX_Extended
+#     n_folds: 8
+#     std: true
+
+n_plots: 1
+
+plot:
+  type: comp_line_chart
+  specifications:
+    checkpoint_dir: /afs/inf.ed.ac.uk/user/s25/s2589574/BEPE/Models
+    models: 
+      - ProtoNet
+      - MAML
+    datasets: 
+     - FLW_Extended
+    color_list: 
+      - rgb(255, 201, 222)
+      - rgb(253, 217, 124)
+    color_fill_list: 
+      - rgba(255, 201, 222, 0.3)
+      - rgba(253, 217, 124, 0.3)
+    y_axis: MAE
+    dash: solid
+    shot_num: 5
+    std: true
+    
+

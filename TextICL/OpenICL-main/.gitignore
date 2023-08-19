@@ -1,0 +1,24 @@
+# Compiled python modules.
+*.pyc
+
+# Byte-compiled
+__pycache__/
+.cache/
+
+# Test files
+test.py
+test.sh
+
+# Output files
+icl_inference_output/
+batchscript-*
+output/
+
+# Packages
+dist/
+.eggs/
+openicl.egg-info/
+build/
+docs/build/
+*.xml
+*.iml

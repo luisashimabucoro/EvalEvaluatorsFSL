@@ -1,0 +1,7 @@
+test_way: 3
+test_shot: 5
+test_query: 15
+test_episode: 100
+data_root: /mnt/invinciblefs/scratch/lushima/datasets/MetaAlbumMini/44293
+test_datasets:
+  - PLT_NET_Mini
