@@ -30,6 +30,59 @@ conda install --force-reinstall -y --name evalFSLevaluators -c conda-forge --fil
 conda activate evalFSLevaluators
 ```
 ## Folder Organization
+```
+.
+├── config
+├── core
+│   ├── config
+│   │   ├── config.py
+│   │   └── default.yaml
+│   ├── data
+│   │   ├── dataloader.py
+│   │   ├── dataset.py
+│   │   ├── meta_album_dataloader.py
+│   │   └── samplers.py
+│   ├── model
+│   │   ├── abstract_model.py
+│   │   ├── backbone
+│   │   ├── finetuning
+│   │   │   ├── baseline.py
+│   │   │   ├── baseline_plus.py
+│   │   │   ├── baseline_plus_cv.py
+│   │   │   └── finetuning_model.py
+│   │   ├── meta
+│   │   │   ├── maml.py
+│   │   │   ├── maml_cv.py
+│   │   │   ├── meta_model.py
+│   │   │   └─── r2d2.py
+│   │   └── metric
+│   │       ├── metric_model.py
+│   │       ├── proto_net.py
+│   │       └── proto_net_cv.py
+│   ├── test.py
+│   ├── trainer.py
+│   └── utils
+│       ├── evaluator.py
+│       └── utils.py
+├── reproduce
+│   ├── Baseline
+│   │   ├── MultiDomain
+│   │   │   ├── baseline-md-split1.yaml
+│   │   │   ├── baseline-md-split2.yaml
+│   │   │   └── baseline-md.yaml
+│   │   └── Within-domain
+│   │       ├── baseline-cfs.yaml
+│   │       └── baseline-og.yaml
+│   ├── Baseline++
+│   ├── Baseline++CV
+│   ├── MAML
+│   ├── MAMLCV
+│   ├── Proto
+│   ├── ProtoCV
+│   └── R2D2
+├── run_test.py
+└── run_trainer.py
+```
 
 ## Training
 
