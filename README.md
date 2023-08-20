@@ -29,6 +29,32 @@ conda create -n python=3.6 evalFSLevaluators
 conda install --force-reinstall -y --name evalFSLevaluators -c conda-forge --file requirements.txt
 conda activate evalFSLevaluators
 ```
+
+## Training
+To train (or resume training) the models change directory to `LibFewShot` and run the following command (adapting the arguments to your needs):
+
+```shell
+python3 run_trainer.py \
+      --config_path <PATH_TO_YAML_CONFIG_FILE> \
+      --data_root <PATH_TO_DATASET> \
+      --result_root <PATH_TO_STORE_RESULTS> \
+      --allow_test # (optional) this flag should be added if you'd like to evaluate your model on the test set right after training \
+      --resume # (optional) this flag should be added if you'd like to resume training
+```
+
+For the config paths you can use the `.yaml` files present in the [reproduce](https://github.com/luisashimabucoro/EvalEvaluatorsFSL/tree/main/LibFewShot/reproduce) directory or you can create your own based on the ones provided. Another alternative is to use a config file and override some of the parameters defined in it by setting a new value using the command line parameters (you can check [here](https://github.com/luisashimabucoro/EvalEvaluatorsFSL/blob/516686fac32a2a6a4e7f95c08f8f0b7400dd5f67/LibFewShot/core/config/config.py#L115) the exact syntax of the commands/flags).
+
+
+## Evaluation
+To train (or resume training) the models change directory to `LibFewShot` and run the following command (adapting the arguments to your needs):
+
+```shell
+python3 run_test.py \
+      --config_path <PATH_TO_YAML_CONFIG_FILE> \
+      --data_root <PATH_TO_DATASET> \
+      --result_root <PATH_TO_STORE_RESULTS> \
+      --experiment_dir # (optional)
+```
 ## Folder Organization
 The directories are organized in the following way inside the LibFewShot folder:
 * **config** - directory containing default LibFewShot settings for the backbone and classifiers
@@ -88,24 +114,6 @@ The directories are organized in the following way inside the LibFewShot folder:
 ├── run_test.py
 └── run_trainer.py
 ```
-
-## Training
-To train (or resume training) the models change directory to `LibFewShot` and run the following command (adapting the arguments to your needs):
-
-```shell
-python3 run_trainer.py \
-      --config_path <PATH_TO_YAML_CONFIG_FILE> \
-      --data_root <PATH_TO_DATASET> \
-      --result_root <PATH_TO_STORE_RESULTS> \
-      --allow_test # (optional) this flag should be added if you'd like to evaluate your model on the test set right after training \
-      --resume # (optional) this flag should be added if you'd like to resume training
-```
-
-For the config paths you can use the `.yaml` files present in the [reproduce](https://github.com/luisashimabucoro/EvalEvaluatorsFSL/tree/main/LibFewShot/reproduce) directory
-
-
-## Evaluation
-
 ## Citing the paper
 
 If you found the paper/repository useful please consider giving a star :star: and citation :t-rex::
