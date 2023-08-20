@@ -6,9 +6,13 @@ The paper was accepted at the DMLR (Data-centric Machine Learning Research) Work
 
 [[paper](https://arxiv.org/abs/2307.02732)][[bibtex](#citing-the-paper)]
 
+Here you can find all the code necessary to replicate the experiments presented in the paper, which are implemented in PyTorch. For details, see the paper: **[Evaluating the Evaluators: Are Current Few-Shot Learning Benchmarks Fit for Purpose?](https://arxiv.org/abs/2307.02732)**.
+
+The implementations of the algorithms used are from [LibFewShot](https://github.com/RL-VIG/LibFewShot) and we thank the authors for the code provided.
+
 ## Citing the paper
 
-If you find this repository useful, please consider giving a star :star: and citation :t-rex::
+If you found the paper/repository useful please consider giving a star :star: and citation :t-rex::
 
 ```
 @misc{shimabucoro2023evaluating,
