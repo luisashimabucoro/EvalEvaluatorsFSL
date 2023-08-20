@@ -38,7 +38,7 @@ python3 run_trainer.py \
       --config_path <PATH_TO_YAML_CONFIG_FILE> \
       --data_root <PATH_TO_DATASET> \
       --result_root <PATH_TO_STORE_RESULTS> \
-      --allow_test # (optional) this flag should be added if you'd like to evaluate your model on the test set right after training \
+      --allow_test \ # (optional) this flag should be added if you'd like to evaluate your model on the test set right after training
       --resume # (optional) this flag should be added if you'd like to resume training
 ```
 
@@ -53,8 +53,11 @@ python3 run_test.py \
       --config_path <PATH_TO_YAML_CONFIG_FILE> \
       --data_root <PATH_TO_DATASET> \
       --result_root <PATH_TO_STORE_RESULTS> \
-      --experiment_dir # (optional)
+      --eval_types \ # (optional if already defined in the config file) defines types of evaluations to be performed (oracle,hold_out,cross_validation,bootstrapping)
+      --experiment_dir # (optional) define specific name for folder where results should be stored
 ```
+Similarly to the training setup the config file provided can be overrided using the command line parameters defined [here](https://github.com/luisashimabucoro/EvalEvaluatorsFSL/blob/516686fac32a2a6a4e7f95c08f8f0b7400dd5f67/LibFewShot/core/config/config.py#L115).
+
 ## Folder Organization
 The directories are organized in the following way inside the LibFewShot folder:
 * **config** - directory containing default LibFewShot settings for the backbone and classifiers
