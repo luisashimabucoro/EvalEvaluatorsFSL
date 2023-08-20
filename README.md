@@ -2,7 +2,7 @@
 
 This is the official repository for the paper "Evaluating the Evaluators: Are Current Few-Shot Learning Benchmarks Fit for Purpose?" by [Luisa B. Shimabucoro](https://scholar.google.com/citations?hl=pt-BR&user=IYVqNJAAAAAJ&view_op=list_works), [Timothy M. Hospedales](https://scholar.google.com/citations?user=nHhtvqkAAAAJ&hl) and [Henry Gouk](https://scholar.google.com/citations?user=i1bzlyAAAAAJ&hl).
 
-The paper was accepted at the DMLR (Data-centric Machine Learning Research) Workshop at ICML'23.
+The paper was accepted at the *DMLR (Data-centric Machine Learning Research) Workshop at ICML'23*.
 
 [[paper](https://arxiv.org/abs/2307.02732)][[bibtex](#citing-the-paper)]
 
@@ -14,7 +14,7 @@ The implementations of the algorithms used are from [LibFewShot](https://github.
 
 ## Setup
 
-We would first like to note that the training and testing were made using a Linux environment and Python 3.6, so any divergences from these two noted points might require some additional changes by the user. To setup the environment following all the required dependencies for training and evaluation, please one of the two methods below:
+:warning: We would first like to note that the training and testing were made using a Linux environment and Python 3.6, so any divergences from these two noted points might require some additional changes by the user. To setup the environment following all the required dependencies for training and evaluation, please one of the two methods below:
 
 **pip** - Clone the repository, create a virtual environment and then use the `requirements.txt` file to download all dependencies:
 ```shell
@@ -30,7 +30,14 @@ conda install --force-reinstall -y --name evalFSLevaluators -c conda-forge --fil
 conda activate evalFSLevaluators
 ```
 ## Folder Organization
-The folders are organized in the following way inside the LibFewShot folder
+The directories are organized in the following way inside the LibFewShot folder:
+* **config** - directory containing default LibFewShot settings for the backbone and classifiers
+* **core** - directory containing the code used to perform the experiments
+  * **data** - subdirectory with dataloaders and data processing pipelines
+  * **model** - subdirectory with the implementations of the algorithms used organized by algorithm type (finetuning, metric and meta-learning based)
+  * **utils** - subdirectory with utility modules and most importantly the implementations of the different evaluation methods used for each algorithm (oracle, hold-out, cross-validation and bootstrapping) 
+  * *train* and *test* - files with the training and testing pipeline
+* **reproduce** - contains `.yaml` files with all hyperparameter and general settings used for training/testing each combination of dataset (miniImageNet and CIFAR-FS (within-domain datasets) and Meta Album (multi-domain)) and algorithm (Baseline(++), ProtoNet, MAML and R2D2) used in the experiments
 ```
 .
 ├── config
@@ -83,6 +90,19 @@ The folders are organized in the following way inside the LibFewShot folder
 ```
 
 ## Training
+To train (or resume training) the models change directory to `LibFewShot` and run the following command (adapting the arguments to your needs):
+
+```shell
+python3 run_trainer.py \
+      --config_path <PATH_TO_YAML_CONFIG_FILE> \
+      --data_root <PATH_TO_DATASET> \
+      --result_root <PATH_TO_STORE_RESULTS> \
+      --allow_test # (optional) this flag should be added if you'd like to evaluate your model on the test set right after training \
+      --resume # (optional) this flag should be added if you'd like to resume training
+```
+
+For the config paths you can use the `.yaml` files present in the [reproduce](https://github.com/luisashimabucoro/EvalEvaluatorsFSL/tree/main/LibFewShot/reproduce) directory
+
 
 ## Evaluation
 
