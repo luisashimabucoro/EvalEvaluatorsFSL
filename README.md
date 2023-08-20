@@ -30,13 +30,11 @@ conda install --force-reinstall -y --name evalFSLevaluators -c conda-forge --fil
 conda activate evalFSLevaluators
 ```
 ## Folder Organization
+The folders are organized in the following way inside the LibFewShot folder
 ```
 .
 ├── config
 ├── core
-│   ├── config
-│   │   ├── config.py
-│   │   └── default.yaml
 │   ├── data
 │   │   ├── dataloader.py
 │   │   ├── dataset.py
