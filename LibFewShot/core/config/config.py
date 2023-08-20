@@ -170,7 +170,7 @@ class Config(object):
         parser.add_argument("-config_path", "--config_path", help='define the path where the config file is', type=str)
         parser.add_argument("-add_experiment", "--add_experiment", help='define if a specific experiment should be performed \
                             (imbalance_exp)', type=str)
-        parser.add_argument("-eval_types", "--eval_types", help='define types of evaluation to be performed', type=str)
+        parser.add_argument("-eval_types", "--eval_types", help='define types of evaluation to be performed (oracle,hold_out,cross_validation,bootstrapping) (divided by commas and with no spaces)', type=str)
         args = parser.parse_args()
         # Remove key-None pairs
         return {k: v for k, v in vars(args).items() if v is not None}
