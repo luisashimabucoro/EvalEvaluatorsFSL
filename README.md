@@ -17,14 +17,14 @@ The implementations of the algorithms used are from [LibFewShot](https://github.
 :warning: We would first like to note that the training and testing were made using a Linux environment and Python 3.6, so any divergences from these two noted points might require some additional changes by the user. To setup the environment following all the required dependencies for training and evaluation, please one of the two methods below:
 
 **pip** - Clone the repository, create a virtual environment and then use the `requirements.txt` file to download all dependencies:
-```shell
+```
 python3.6 -m venv evalFSLevaluators
 source evalFSLevaluators/bin/activate
 pip install -r requirements.txt
 ```
 
 **conda** - Clone the repository, create a conda environment and install the dependencies present in the `requirements.txt`:
-```shell
+```
 conda create -n python=3.6 evalFSLevaluators
 conda install --force-reinstall -y --name evalFSLevaluators -c conda-forge --file requirements.txt
 conda activate evalFSLevaluators
@@ -35,7 +35,7 @@ We provide the formated datasets available for download and ready to use in this
 ## Training
 To train (or resume training) the models change directory to `LibFewShot` and run the following command (adapting the arguments to your needs):
 
-```shell
+```
 python3 run_trainer.py \
       --config_path <PATH_TO_YAML_CONFIG_FILE> \
       --data_root <PATH_TO_DATASET> \
@@ -50,7 +50,7 @@ For the config paths you can use the `.yaml` files present in the [reproduce](ht
 ## Evaluation
 To train (or resume training) the models change directory to `LibFewShot` and run the following command (adapting the arguments to your needs):
 
-```shell
+```
 python3 run_test.py \
       --config_path <PATH_TO_YAML_CONFIG_FILE> \
       --data_root <PATH_TO_DATASET> \
@@ -123,7 +123,7 @@ The directories are organized in the following way inside the LibFewShot folder:
 
 If you found the paper/repository useful please consider giving a star :star: and citation :t-rex::
 
-```
+```bibtex
 @misc{shimabucoro2023evaluating,
       title={Evaluating the Evaluators: Are Current Few-Shot Learning Benchmarks Fit for Purpose?}, 
       author={Luísa Shimabucoro and Timothy Hospedales and Henry Gouk},
