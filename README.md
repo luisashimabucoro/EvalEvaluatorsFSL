@@ -29,6 +29,8 @@ conda create -n python=3.6 evalFSLevaluators
 conda install --force-reinstall -y --name evalFSLevaluators -c conda-forge --file requirements.txt
 conda activate evalFSLevaluators
 ```
+## Datasets
+We provide the formated datasets available for download and ready to use in this [drive](https://drive.google.com/drive/folders/1XtTI3eQwgmyNY29bJl_nuMgDqBJHPmhC?usp=sharing). 
 
 ## Training
 To train (or resume training) the models change directory to `LibFewShot` and run the following command (adapting the arguments to your needs):
